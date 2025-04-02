@@ -1,0 +1,8 @@
+name: vi
+dependencies:
+  - numpy
+  - pandas
+  - jax
+  - optax
+  - scipy
+  - pip
