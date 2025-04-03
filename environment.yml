@@ -2,7 +2,9 @@ name: vi
 dependencies:
   - numpy
   - pandas
-  - jax=0.5.3
+  - jax
   - optax=0.2.4
   - scipy
   - matplotlib
+  - pip
+  - notebook
