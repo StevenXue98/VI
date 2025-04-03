@@ -1,5 +1,6 @@
 import optax
 import jax
+import numpyro
 import numpy as np
 import jax.numpy as jnp
 from jax import vmap, grad, value_and_grad, jvp
