@@ -1,6 +1,6 @@
-from .MFVI import *
+from .VI import *
 
-class MFVI_subsample(MFVI):
+class SVI(VI):
     '''
     Using naive doubly stochastic gradient
     '''

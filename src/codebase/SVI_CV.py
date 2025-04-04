@@ -1,6 +1,6 @@
-from .MFVI import *
+from .VI import *
 
-class MFVI_subsample_CV(MFVI):
+class SVI_CV(VI):
     """
     Using the SVRG version of joint control variate
     """
@@ -48,6 +48,14 @@ class MFVI_subsample_CV(MFVI):
             for idx in shuffled_idx:
                 key, _key = split(key)
                 loss, grads, eps = self.get_loss_eps_grad(_key, params, idx, local_reparam)
+                eps_vmap_flag = 0 if local_reparam else None
+                cv_term_0 = vmap(self.get_sample_grad, (None, 0))(
+                    params, idx
+                )
+                cv_term_1 = vmap(self.get_hessian_vector_product, (None, 0, eps_vmap_flag))(
+                    params, idx, eps
+                )
+                grads['loc'] = grads['loc'] - (cv_term_0 + cv_term_1)
                 grad_norms.append(
                     (grads['loc'] ** 2).mean()
                 )

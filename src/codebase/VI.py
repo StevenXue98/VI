@@ -25,7 +25,7 @@ def get_optimizer(OPT, step_size):
         return optax.sgd(step_size, momentum=0.9)
     return optax.adam(step_size)
 
-class MFVI:
+class VI:
     def __init__(self, model_dir, dataset, observed_vars=[]):
         """
         model_dir: Directory to the model file
