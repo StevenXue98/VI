@@ -9,7 +9,7 @@ from numpyro.infer.util import potential_energy
 from jax.random import PRNGKey, split
 from jax.tree_util import tree_map
 from functools import partial
-from src.codebase.models import Posterior
+from etc.models import Posterior
 
 def split_given_size(a, size):
     return jnp.split(a, jnp.arange(size, len(a), size))
