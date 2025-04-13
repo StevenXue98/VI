@@ -45,6 +45,7 @@ class VI:
         kit = kit_generator(**self.dataset)
         self.flattened_param_template = ravel_pytree(kit['param_template'])[0]
         self.unflatten_func = kit['unflatten_func']
+        self.param_template = kit['param_template']
 
     def get_loss_eps_grad(self, key, params, idx, local_reparam=True):
         loc = params['loc']

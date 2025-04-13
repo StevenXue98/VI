@@ -1,4 +1,4 @@
-from etc.VI import *
+from exp.VI import *
 
 class SVI(VI):
     '''
