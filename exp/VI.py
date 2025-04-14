@@ -9,7 +9,7 @@ from numpyro.infer.util import potential_energy
 from jax.random import PRNGKey, split
 from jax.tree_util import tree_map
 from functools import partial
-from etc.models import Posterior
+from exp.models import Posterior
 
 def split_given_size(a, size):
     return jnp.split(a, jnp.arange(size, len(a), size))
@@ -45,7 +45,6 @@ class VI:
         kit = kit_generator(**self.dataset)
         self.flattened_param_template = ravel_pytree(kit['param_template'])[0]
         self.unflatten_func = kit['unflatten_func']
-        self.param_template = kit['param_template']
 
     def get_loss_eps_grad(self, key, params, idx, local_reparam=True):
         loc = params['loc']
