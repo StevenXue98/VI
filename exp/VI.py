@@ -2,7 +2,7 @@ import optax
 import jax
 import numpy as np
 import jax.numpy as jnp
-from jax import vmap, grad, value_and_grad, jvp
+from jax import vmap, grad, value_and_grad, jvp, vjp, hessian, jacfwd, jacrev
 import numpyro.distributions as dist
 from jax.flatten_util import ravel_pytree
 from numpyro.infer.util import potential_energy
